@@ -1,0 +1,17 @@
+- name: variables
+  hosts: local
+  connection: local
+  vars: # play level variables , global variable {reflests in all the tasks}
+    COURSE: "Devops With AWS"
+    DURATION: 120HRS
+    TRAINER: vinod
+  tasks: 
+  - name: print the variables
+    vars: # play level variable, accessible only within this task
+      COURSE: Ansible
+    ansible.builtin.debug:
+      msg: "Course is {{COURSE}}, Duration is {{DURATION}}, Trainer is {{TRAINER}}"
+
+  - name: print the variables
+    ansible.builtin.debug:
+      msg: "Course is {{COURSE}}, Duration is {{DURATION}}, Trainer is {{TRAINER}}"
