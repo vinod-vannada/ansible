@@ -17,4 +17,6 @@
       course:
         name: ansible
         duration: 10hrs
-        trainer: vinod        
+        trainer: vinod
+    ansible.builtin.debug:
+      msg: "course info: {{ course | dict2items }}"            
