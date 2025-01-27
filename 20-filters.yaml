@@ -1,0 +1,20 @@
+- name: filters
+  hosts: local
+  connection: local
+  tasks:
+  - name: handle undefiend variable
+    ansible.builtin.debug:
+      msg: "hello {{ person | default('ramesh') }}"
+
+  - name: convert string to list
+    vars:
+      fruits: "apple, banana, orange" #string
+    ansible.builtin.debug:
+      msg: "fruits are: {{ fruits | split(',') }}"
+
+  - name: convert map into list
+    vars:
+      course:
+        name: ansible
+        duration: 10hrs
+        trainer: vinod        
